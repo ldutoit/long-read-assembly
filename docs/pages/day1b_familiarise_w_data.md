@@ -173,14 +173,6 @@ In the Venn diagram above, the maternal hapmer *k*-mers/DB are on the left-hand 
 
 #### Using Meryl
 
-**Make sure you are in the right directory**
-
-!!! terminal "code"
-
-    ```bash
-    cd day1_data
-    ```
-
 **Now create a small file to work with**
 
 !!! terminal "code"
@@ -207,7 +199,7 @@ In the Venn diagram above, the maternal hapmer *k*-mers/DB are on the left-hand 
         output paternal_5M_compress.k30.meryl
     ```
 
-This should be pretty fast because we are just using a small amount of data to get a feel for the program. The output of Meryl is a folder that contains 64 index files and 64 data files. If you try and look at the data files you'll see that they aren't human readable. In order to look at the actual *k*-mers, you have to use meryl to print them.
+This should be pretty fast because we are just using a small amount of data to get a feel for the program. The output of Meryl is a folder that contains 64 index files and 64 data files. If you try and look at the data files you'll see that they aren't human readable. In order to look at the actual *k*-mers, you have to use Meryl to print them.
 
 **Look at the *k*-mers**
 
@@ -219,7 +211,7 @@ This should be pretty fast because we are just using a small amount of data to g
         paternal_5M_compress.k30.meryl \
         | head
     ```
-The first column is the *k*-mer and the second column is the count of that *k*-mer in the dataset.
+The first column is the *k*-mer and the second column is the count of that *k*-mer in the dataset. We are just looking at the first few here.
 
 **Take a look at some statistics for the DB**
 
@@ -344,7 +336,7 @@ Yak won't work on our Jupyter instances, so create a slurm script that has 32 co
     #SBATCH --job-name      yak_run
     #SBATCH --cpus-per-task 32
     #SBATCH --time          00:10:00
-    #SBATCH --mem           96G
+    #SBATCH --mem           32G
     #SBATCH --partition     milan
     #SBATCH --output        slurmlogs/%x.%j.out
     #SBATCH --error         slurmlogs/%x.%j.err
