@@ -128,7 +128,7 @@ Now we can quickly check how many reads are retained.
 
     Over half of the reads are filtered out, but only about 25% of the data (see "Total bases") is filtered. This makes sense as the long reads contribute more bp per read.
 
-??? clipboard-question "Verkko is typically run without having filtered by size, why do you think that is?"
+??? clipboard-question "[Verkko](https://github.com/marbl/verkko), a hybrid assembler, is typically run without having filtered by size, why do you think that is?"
 
     Based on the answer to the last question, filtering an ultralong readset for >50kb reads does not reduce the overall size of the dataset very much. 
 
