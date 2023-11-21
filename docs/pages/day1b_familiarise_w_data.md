@@ -25,7 +25,7 @@ In order to get a feel for the data, we only need a small portion of it. Pull th
 !!! terminal "code"
 
     ```bash
-    zcat /nesi/nobackup/nesi02659/LRA/resources/deepconsensus/m64011_190830_220126.Q20.fastq.gz \
+    zcat m64011_190830_220126.Q20.fastq.gz \
         | head -n 200000 \
         | pigz > hifi_50k_reads.fq.gz &
     ```
@@ -34,7 +34,7 @@ Next, downsample the ONT UL reads, too.
 !!! terminal "code"
     ```bash
     samtools fastq -@4 \
-        /nesi/nobackup/nesi02659/LRA/resources/ont_ul/03_08_22_R941_HG002_1_Guppy_6.1.2_5mc_cg_prom_sup.bam \
+        03_08_22_R941_HG002_1_Guppy_6.1.2_5mc_cg_prom_sup.bam \
         | head -n 20000 \
         | pigz > ont_ul_5k_reads.fq.gz &
     ```
@@ -186,7 +186,7 @@ In the Venn diagram above, the maternal hapmer *k*-mers/DB are on the left-hand 
 !!! terminal "code"
 
     ```bash
-    zcat /nesi/nobackup/nesi02659/LRA/resources/ilmn/pat/HG003_HiSeq30x_subsampled_R1.fastq.gz \
+    zcat 
         | head -n 20000000 \
         | pigz > HG003_HiSeq30x_5M_reads_R1.fastq.gz &
     ```    
@@ -324,7 +324,7 @@ Yak (Yet-Another Kmer Analyzer) is the kmer counter that we need for Hifiasm ass
 !!! terminal "code"
 
     ```bash
-    zcat /nesi/nobackup/nesi02659/LRA/resources/ilmn/pat/HG003_HiSeq30x_subsampled_R2.fastq.gz \
+    zcat HG003_HiSeq30x_subsampled_R2.fastq.gz \
         | head -n 20000000 \
         | pigz > HG003_HiSeq30x_5M_reads_R2.fastq.gz &
     ```  
