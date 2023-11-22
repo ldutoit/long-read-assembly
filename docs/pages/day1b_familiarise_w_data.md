@@ -6,9 +6,8 @@ Let's get our hands on some data so we can see with our own eyes what HiFi and U
 
 !!! terminal "code"
     ```bash
-    cd ~/lra
-    mkdir day1_data
-    cd day1_data
+    cd Day4
+    cd dataprep
     ```
 **Load modules**
 
@@ -240,7 +239,7 @@ We see a lot of *k*-mers missing and the histogram (frequency column) has a ton 
         #SBATCH --job-name      meryl_run
         #SBATCH --cpus-per-task 32
         #SBATCH --time          12:00:00
-        #SBATCH --mem           96G
+        #SBATCH --mem           24G
         #SBATCH --partition     milan
         #SBATCH --output        slurmlogs/%x.%j.out
         #SBATCH --error         slurmlogs/%x.%j.err
