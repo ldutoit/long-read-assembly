@@ -187,8 +187,8 @@ In the Venn diagram above, the maternal hapmer *k*-mers/DB are on the left-hand 
 
     ```bash
     zcat /nesi/nobackup/nesi02659/LRA/resources/ilmn/pat/HG003_HiSeq30x_subsampled_R1.fastq.gz \
-        | head -n 20000000 \
-        | pigz > HG003_HiSeq30x_5M_reads_R1.fastq.gz &
+        | head -n 2000000 \
+        | pigz > HG003_HiSeq30x_1M_reads_R1.fastq.gz &
     ```    
 
 **Create a *k*-mer DB from an Illumina read set**
@@ -201,10 +201,10 @@ In the Venn diagram above, the maternal hapmer *k*-mers/DB are on the left-hand 
     meryl count \
         compress \
         k=30 \
-        threads=4 \
-        memory=8 \
-        HG003_HiSeq30x_5M_reads_R1.fastq.gz \
-        output paternal_5M_compress.k30.meryl
+        threads=2 \
+        memory=4 \
+        HG003_HiSeq30x_1M_reads_R1.fastq.gz \
+        output paternal_1M_compress.k30.meryl
     ```
 
 This should be pretty fast because we are just using a small amount of data to get a feel for the program. The output of Meryl is a folder that contains 64 index files and 64 data files. If you try and look at the data files you'll see that they aren't human readable. In order to look at the actual *k*-mers, you have to use meryl to print them.
@@ -216,7 +216,7 @@ This should be pretty fast because we are just using a small amount of data to g
     ```bash
     meryl print \
         greater-than 1 \
-        paternal_5M_compress.k30.meryl \
+        paternal_1M_compress.k30.meryl \
         | head
     ```
 The first column is the *k*-mer and the second column is the count of that *k*-mer in the dataset.
@@ -227,7 +227,7 @@ The first column is the *k*-mer and the second column is the count of that *k*-m
 
     ```bash
     meryl statistics \
-        paternal_5M_compress.k30.meryl \
+        paternal_1M_compress.k30.meryl \
         | head -n 20
     ```
 
